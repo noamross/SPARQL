@@ -49,7 +49,7 @@ SPARQL <- function(url="http://localhost/", query="", update="",
                                        httpheader = c(Accept="application/sparql-results+xml")),
                                   curl_args))
       DOM <- do.call(xmlParse, append(list(tf), parser_args))
-      if(length(getNodeSet(DOM, '//s:result[1]', namespaces=sparqlns)) == 0) {
+      if(length(getNodeSet(DOM, '//s:results[1]', namespaces=sparqlns)) == 0) {
         rm(DOM)
         df <- data.frame(c())
       } else {
